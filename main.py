@@ -1,12 +1,11 @@
-from testcases import testcase1
 from util import util
 from selenium import webdriver
+from testcases.basic.test_user_register import TestUserRegister
+from testcases.basic.test_user_login import TestUserLogin
 if __name__ == '__main__':
-
-    # testcase1.test2()
-    # print(util.gen_random_str())
-    driver = webdriver.Chrome()
-    driver.get('http://localhost:8080/jpress/user/register')
-    driver.maximize_window()
-
-    util.get_code(driver, 'captchaimg')
+    # case01 = TestUserRegister()
+    # case01.test_register_code_error()
+    # case01.test_register_ok()
+    case02 = TestUserLogin()
+    # case02.test_user_login_username_error()
+    case02.test_user_login_ok()
