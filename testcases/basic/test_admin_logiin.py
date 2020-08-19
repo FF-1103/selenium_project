@@ -5,4 +5,4 @@
 # 开发工具   ：PyCharm
 class TestAdminLogin(object):
     def __init__(self):
-        self.driver =
+        self.driver = self
