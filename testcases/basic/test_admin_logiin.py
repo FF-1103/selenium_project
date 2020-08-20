@@ -3,6 +3,10 @@
 # 开发时间   ：2020-08-19  16:24
 # 文件名称   ：test_user_login.PY
 # 开发工具   ：PyCharm
+from selenium import webdriver
+
+
 class TestAdminLogin(object):
     def __init__(self):
-        self.driver = self
+        self.driver = webdriver.Chrome()
+
