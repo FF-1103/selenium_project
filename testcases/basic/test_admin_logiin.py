@@ -16,6 +16,7 @@ class TestAdminLogin(object):
         self.driver.get('http://localhost:8080/jpress/admin/login')
         self.driver.maximize_window()
 
+    # 测试用户登录失败，用户名错误
     def test_admin_login_username_error(self):
         username = ''
         pwd = 'admin'
@@ -34,4 +35,18 @@ class TestAdminLogin(object):
         assert alert.text == expected
         alert.accept()
 
+    # 测试用户登录失败，用户名错误
+    def test_admin_login_ok(self):
+        username = 'admin'
+        pwd = 'admin'
+        expected = 'JPress后台'
 
+        self.driver.find_element_by_xpath('//*[@id="form"]/div[1]/input').send_keys(username)
+        self.driver.find_element_by_xpath('//*[@id="form"]/div[2]/input').send_keys(pwd)
+        captcha = util.get_code(self.driver, 'captchaImg')
+        self.driver.find_element_by_xpath('//*[@id="form"]/div[3]/input').send_keys(captcha)
+        self.driver.find_element_by_xpath('//*[@id="form"]/div[4]/div/button').click()
+
+        WebDriverWait(self.driver, 5).until(EC.title_is(expected))
+
+        assert self.driver.title == expected

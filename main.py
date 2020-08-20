@@ -16,4 +16,5 @@ if __name__ == '__main__':
     # case02.test_user_login_username_error()
     # case02.test_user_login_ok()
     case03 = TestAdminLogin()
-    case03.test_admin_login_username_error()
+    # case03.test_admin_login_username_error()
+    case03.test_admin_login_ok()
