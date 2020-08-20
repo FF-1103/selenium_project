@@ -8,6 +8,7 @@ from selenium import webdriver
 from testcases.basic.test_user_register import TestUserRegister
 from testcases.basic.test_user_login import TestUserLogin
 from testcases.basic.test_admin_logiin import TestAdminLogin
+from testcases.basic.test_category import TestCategory
 if __name__ == '__main__':
     # case01 = TestUserRegister()
     # case01.test_register_code_error()
@@ -15,6 +16,9 @@ if __name__ == '__main__':
     # case02 = TestUserLogin()
     # case02.test_user_login_username_error()
     # case02.test_user_login_ok()
-    case03 = TestAdminLogin()
+    login = TestAdminLogin()
+    print(login)
     # case03.test_admin_login_username_error()
-    case03.test_admin_login_ok()
+    login.test_admin_login_ok()
+    case04 = TestCategory(login)
+    case04.test_add_category_error()
